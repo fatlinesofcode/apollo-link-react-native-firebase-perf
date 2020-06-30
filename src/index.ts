@@ -1,9 +1,10 @@
 import { ApolloLink } from 'apollo-link';
 import formatMessage from './formatMessage';
 import logging from './logging';
-import * as firebase from 'firebase/app';
+import {ReactNativeFirebase} from '@react-native-firebase/app'
+import {FirebasePerformanceTypes} from '@react-native-firebase/perf';
 
-const createFPMLink = (perf: () => (firebase.performance.Performance | undefined), debug: boolean = false) => {
+const createFPMLink = (perf: (ReactNativeFirebase.FirebaseModuleWithStatics<FirebasePerformanceTypes.Module, FirebasePerformanceTypes.Statics>), debug: boolean = false) => {
   return new ApolloLink((operation, forward) => {
     if (forward === undefined) {
       return null;
@@ -19,7 +20,7 @@ const createFPMLink = (perf: () => (firebase.performance.Performance | undefined
     const perfObj = perf();
     const startTime = new Date().getTime();
 
-    let trace: firebase.performance.Trace | undefined;
+    let trace: FirebasePerformanceTypes.Trace | undefined;
     if (perfObj !== undefined && operationType !== 'subscription') {
       let traceName = `${operation.operationName}`.trim();
       if (traceName.length > 32) {
@@ -40,7 +41,7 @@ const createFPMLink = (perf: () => (firebase.performance.Performance | undefined
         }
       }
       try {
-        trace = perfObj.trace(traceName);
+        trace = perfObj.newTrace(traceName);
         trace.start();
       } catch (e) {
         if (debug) {

@@ -1,5 +1,5 @@
 {
-  "name": "apollo-link-firebase-performance-monitoring",
+  "name": "apollo-link-react-native-firebase-perf",
   "version": "1.0.6",
   "description": "Firebase Performance Monitoring for Apollo GraphQL Client using Apollo Link",
   "main": "lib/index.js",
@@ -15,29 +15,28 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Gerrel/apollo-link-firebase-performance-monitoring.git"
+    "url": "git@github.com:KirioXX/apollo-link-react-native-firebase-perf.git"
   },
   "keywords": [
     "apollo",
-    "apollo",
-    "client",
-    "apollo",
-    "link",
+    "apollo-client",
+    "apollo-link",
     "firebase",
     "performance",
     "monitoring",
     "logger",
     "link"
   ],
-  "author": "Gerrel",
+  "author": "KirioXX",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Gerrel/apollo-link-firebase-performance-monitoring/issues"
+    "url": "https://github.com/KirioXX/apollo-link-react-native-firebase-perf/issues"
   },
-  "homepage": "https://github.com/Gerrel/apollo-link-firebase-performance-monitoring#readme",
+  "homepage": "https://github.com/KirioXX/apollo-link-react-native-firebase-perf#readme",
   "devDependencies": {
     "apollo-link": "^1.2.14",
-    "firebase": "^7.15.5",
+    "@react-native-firebase/app": "^7.2.1",
+    "@react-native-firebase/perf": "^7.1.4",
     "graphql": "^14.6.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
@@ -46,6 +45,8 @@
   },
   "peerDependencies": {
     "apollo-link": "^1.2.14",
-    "firebase": "^6.6.1 || ^7.2.1 || ^7.15.5"
+    "@react-native-firebase/app": "^7.2.1",
+    "@react-native-firebase/perf": "^7.1.4",
+    "react-native": "^0.62.2"
   }
 }
