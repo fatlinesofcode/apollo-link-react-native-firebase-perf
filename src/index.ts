@@ -1,9 +1,15 @@
 import { ApolloLink } from 'apollo-link';
 import formatMessage from './formatMessage';
 import logging from './logging';
-import {ReactNativeFirebase} from '@react-native-firebase/app'
-import {FirebasePerformanceTypes} from '@react-native-firebase/perf';
+import { ReactNativeFirebase } from '@react-native-firebase/app'
+import { FirebasePerformanceTypes } from '@react-native-firebase/perf';
 
+/**
+ * Create a Firebase perf monitoring link
+ *
+ * @param {ReactNativeFirebase.FirebaseModuleWithStatics<FirebasePerformanceTypes.Module, FirebasePerformanceTypes.Statics>} perf - React Native Firebase Performance module
+ * @param {boolean} [debug=false] - Enable debug mode
+ */
 const createFPMLink = (perf: (ReactNativeFirebase.FirebaseModuleWithStatics<FirebasePerformanceTypes.Module, FirebasePerformanceTypes.Statics>), debug: boolean = false) => {
   return new ApolloLink((operation, forward) => {
     if (forward === undefined) {

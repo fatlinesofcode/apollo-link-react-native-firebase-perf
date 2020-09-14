@@ -27,7 +27,13 @@ import createFPMLink from 'apollo-link-react-native-firebase-perf';
 
 // ...
 ApolloLink.from([
-  createFPMLink(perf, true /* debug: true/false for logging to console */),
+  /**
+   * Create a Firebase perf monitoring link
+   *
+   * @param {ReactNativeFirebase.FirebaseModuleWithStatics<FirebasePerformanceTypes.Module, FirebasePerformanceTypes.Statics>} perf - React Native Firebase Performance module
+   * @param {boolean} [debug=false] - Enable debug mode
+   */
+  createFPMLink(perf, true),
   // ...
 ]);
 ```
