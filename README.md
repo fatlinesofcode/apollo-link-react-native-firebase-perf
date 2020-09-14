@@ -1,11 +1,17 @@
-# apollo-link-react-native-firebase-perf
+# @kirio/apollo-link-react-native-firebase-perf
 
 Firebase Performance Monitoring for Apollo GraphQL Client using Apollo Link
 
 ## Installing / Getting Started
 
 ```sh
-npm install apollo-link-react-native-firebase-perf
+npm install @kirio/apollo-link-react-native-firebase-perf
+```
+
+Or:
+
+```sh
+yarn add @kirio/apollo-link-react-native-firebase-perf
 ```
 
 ### Prerequisites
@@ -41,4 +47,4 @@ ApolloLink.from([
 ## License
 
 This project is licensed under the MIT License - see the
-[license] file for details.
+[license](https://github.com/KirioXX/apollo-link-react-native-firebase-perf/blob/master/LICENSE) file for details.
