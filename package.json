@@ -1,6 +1,6 @@
 {
-  "name": "@kirio/apollo-link-react-native-firebase-perf",
-  "version": "1.0.6",
+  "name": "apollo-link-react-native-firebase-perf",
+  "version": "1.0.0",
   "description": "React-Native Firebase Performance Monitoring for Apollo GraphQL Client using Apollo Link",
   "main": "lib/index.js",
   "scripts": {
