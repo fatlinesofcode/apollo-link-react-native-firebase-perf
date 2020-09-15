@@ -1,13 +1,15 @@
 {
   "name": "@kirio/apollo-link-react-native-firebase-perf",
   "version": "1.0.6",
-  "description": "Firebase Performance Monitoring for Apollo GraphQL Client using Apollo Link",
+  "description": "React-Native Firebase Performance Monitoring for Apollo GraphQL Client using Apollo Link",
   "main": "lib/index.js",
   "scripts": {
+    "postinstall": "install-peers",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf ./lib && tsc -p .",
-    "deploy": "npm run build && npm publish",
-    "deploy:local": "npm run build && npm publish --registry http://localhost:4873",
+    "predeploy": "npm run build",
+    "deploy": "npm publish",
+    "deploy:local": "npm publish --registry http://localhost:4873",
     "pack-check": "npm run build && npm pack --dry-run"
   },
   "files": [
@@ -24,6 +26,7 @@
     "apollo-link",
     "firebase",
     "performance",
+    "react-native",
     "monitoring",
     "logger",
     "link"
@@ -35,19 +38,17 @@
   },
   "homepage": "https://github.com/KirioXX/apollo-link-react-native-firebase-perf#readme",
   "devDependencies": {
-    "apollo-link": "^1.2.14",
-    "@react-native-firebase/app": "^8.4.2",
-    "@react-native-firebase/perf": "^7.4.3",
-    "graphql": "^15.3.0",
+    "install-peers-cli": "^2.2.0",
     "prettier": "^2.1.1",
     "rimraf": "^3.0.2",
     "tslint": "^6.1.3",
     "typescript": "^4.0.2"
   },
   "peerDependencies": {
-    "apollo-link": "^1.2.14",
     "@react-native-firebase/app": "^8.4.2",
     "@react-native-firebase/perf": "^7.4.3",
+    "apollo-link": "^1.2.14",
+    "graphql": "^15.3.0",
     "react-native": "^0.62.2"
   }
 }
