@@ -12,12 +12,12 @@ import { FirebasePerformanceTypes } from '@react-native-firebase/perf';
  */
 const createFPMLink = (perf: (ReactNativeFirebase.FirebaseModuleWithStatics<FirebasePerformanceTypes.Module, FirebasePerformanceTypes.Statics>), debug: boolean = false) => {
   return new ApolloLink((operation, forward) => {
-    if (forward === undefined) {
+    if (!forward) {
       return null;
     }
     const def: any = operation.query.definitions.length > 0 ? operation.query.definitions[0] : undefined;
     let operationType: string;
-    if (def !== undefined) {
+    if (def) {
       const operationTypeString: string = typeof def.operation === 'string' ? def.operation : undefined;
       operationType = operationTypeString.length > 0 ? operationTypeString : 'req';
     } else {
@@ -27,7 +27,7 @@ const createFPMLink = (perf: (ReactNativeFirebase.FirebaseModuleWithStatics<Fire
     const startTime = new Date().getTime();
 
     let trace: FirebasePerformanceTypes.Trace | undefined;
-    if (perfObj !== undefined && operationType !== 'subscription') {
+    if (perfObj && operationType !== 'subscription') {
       let traceName = `${operation.operationName}`.trim();
       if (traceName.length > 32) {
         traceName = traceName.substr(0, 32);
